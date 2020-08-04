@@ -108,6 +108,7 @@ import java.lang.reflect.Method;
 import java.net.*;
 import java.nio.charset.StandardCharsets;
 import java.sql.SQLException;
+import java.time.Instant;
 import java.util.*;
 import java.util.concurrent.*;
 import java.util.function.BiFunction;
@@ -1472,7 +1473,7 @@ public class DiscordSRV extends JavaPlugin implements Listener {
     public String getEmbedAvatarUrl(String playerUsername, UUID playerUniqueId) {
         String avatarUrl = DiscordSRV.config().getString("Experiment_EmbedAvatarUrl");
 
-        if (StringUtils.isBlank(avatarUrl)) avatarUrl = "https://minotar.net/helm/{uuid-nodashes}/{size}";
+        if (StringUtils.isBlank(avatarUrl)) avatarUrl = "https://minotar.net/helm/{uuid-nodashes}/{size}?t={timestamp}";
         avatarUrl = avatarUrl
                 .replace("{timestamp}", String.valueOf(System.currentTimeMillis() / 1000))
                 .replace("{username}", playerUsername)
